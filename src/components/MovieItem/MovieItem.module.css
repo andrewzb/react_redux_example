@@ -1,0 +1,37 @@
+.Container{
+    /* width: 100%; */
+    background-color: var(--color-grey-light-4-transperant);
+    color:  var(  --color-grey-dark-2);
+    box-shadow: var(--shadow-dark);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.Container:hover{
+    background-color: var(  --color-grey-light-5);
+}
+
+.Title{
+    display: block;
+    font-size: 1rem;
+    color:  var(  --color-grey-dark-1);
+    padding: 0 0.5rem;
+    text-align: center;
+}
+.PosterContainer{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0.5rem;
+
+}
+.Poster{
+    width: 100%;
+    height: auto;
+}
+.Info{
+    padding: 0.5rem;
+    color:  var(  --color-grey-dark-2);
+    text-align: center;
+    font-size: 1rem;
+}

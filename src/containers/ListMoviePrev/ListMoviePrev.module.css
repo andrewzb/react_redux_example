@@ -1,0 +1,27 @@
+/* .Container{
+    background-color: var(  --color-grey-light-2);
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.Container div {
+    margin: 1rem auto;
+
+} */
+
+.Container{
+    
+    /* background-color: var(  --color-grey-light-2); */
+    width: 60%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+    
+.Container div {
+
+
+}

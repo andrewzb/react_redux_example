@@ -1,0 +1,15 @@
+.Header{
+    height: 5rem;
+    width: 100%;
+    background-color: var(--color-grey-light-2);
+
+}
+
+.Container{
+    width: 80%;
+    /* background-color: var(--color-grey-light-4); */
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
