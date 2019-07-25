@@ -1,0 +1,43 @@
+/* .Container{
+    background-color: var(  --color-grey-light-2);
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.Container div {
+    margin: 1rem auto;
+
+} */
+
+.Container{
+    
+    /* background-color: var(  --color-grey-light-2); */
+    width: 60%;
+    margin: 0 auto;
+    padding: 2rem;
+   
+}
+    
+.MovieContainer{
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+.buttonsContainer{
+    margin: 2rem 0;
+    padding: 1rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-around;
+    border-radius: 1rem 1rem 15rem 15rem;
+
+    background-color: var(--color-grey-light-2);
+    box-shadow: var(--shadow-dark);
+}
+.buttonContainer {
+    display: flex;
+    justify-content: center
+}

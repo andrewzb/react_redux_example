@@ -1,0 +1,20 @@
+.Btn{
+text-decoration: none;
+font-size: 1rem;
+padding: 0.5rem 1rem;
+border-radius: 4px;
+text-transform: capitalize;
+color: var(--color-grey-dark-2);
+cursor: pointer;
+background: var(--color-grey-light-5);
+}
+.Btn:disabled{
+color: var(--color-grey-dark-3);
+color: var(--color-grey-dark-5);
+
+
+}
+
+.Btn:hover{
+
+}

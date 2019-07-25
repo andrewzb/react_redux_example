@@ -1,0 +1,12 @@
+.Container{
+    width: auto;
+    height: 5rem;
+    padding: 1rem 0.3rem;
+
+}
+.Container svg {
+    width: 3rem;
+    height: 3rem;
+    
+    
+}
