@@ -1,5 +1,6 @@
 .Container{
     /* width: 100%; */
+    padding: 1rem;
     background-color: var(--color-grey-light-4-transperant);
     color:  var(  --color-grey-dark-2);
     box-shadow: var(--shadow-dark);
@@ -13,13 +14,12 @@
 
 .Title{
     display: block;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color:  var(  --color-grey-dark-1);
-    padding: 0 0.5rem;
     text-align: center;
 }
 .PosterContainer{
-    width: 60%;
+    width: 80%;
     height: auto;
     margin: 0 auto;
     padding: 0.5rem;

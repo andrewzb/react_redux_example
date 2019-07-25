@@ -9,14 +9,16 @@
     
 }
 .MagnifierBtn{
-    padding: 0.25rem;
     width: 4rem;
     background-color: var(--color-grey-light-1);
     border-radius: 0 0 30px 0;
     cursor: pointer;
 
 }
-
+.MagnifierBtn svg {
+    width: 2rem;
+    height: 2rem;
+}
 .SearchBarContainer{
     padding: 1.5rem;
     height: 100%;
