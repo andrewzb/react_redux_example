@@ -1,0 +1,63 @@
+.Main {
+  width: 100%;
+
+}
+.Container{
+  width: 60%;
+  margin: 1.5rem auto;
+  padding: 1rem 0;
+  background-color: var(--color-grey-light-2);
+  border-radius: 5px;
+  box-shadow: var(--shadow-dark);
+}
+.TitleAndBtnContainer{
+  display: flex;
+  justify-content: center;
+}
+.Data{
+  text-align: left;
+}
+.Primary_title{
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var( --color-grey-dark-2);
+}
+.PosterAndDataContainer{
+  width: 100%;
+  padding: 1.5rem 0;
+  display: flex;
+}
+.PosterAndDataContainer div{
+  margin: 1rem;
+}
+.DataContainer div {
+  font-size: 0.8rem;
+  color: var(--color-grey-dark-1);
+}
+.LinkContainer{
+  display:flex;
+  justify-content: center;
+}
+.Link{
+  text-decoration: none;
+  background-color: var(--color);
+  color: var(--color-grey-light-3);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  box-shadow: var(--shadow-dark);
+}
+
+.LikeBtnContainer{
+  display: flex;
+  justify-content: center;
+}
+.Btn{
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  box-shadow: var(--shadow-dark);
+}
