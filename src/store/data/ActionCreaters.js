@@ -1,8 +1,9 @@
 import * as actionTypes from './ActionTypes'
 // Get movies on load start
-export const getMoviesOnLoadStart = () => {
+export const getMoviesOnLoadStart = data => {
   return {
     type: actionTypes.ON_START_GET_MOVIES_START,
+    title: data.title,
   }
 }
 
@@ -21,10 +22,10 @@ export const getMoviesOnLoadFail = () => {
 }
 // Get movies on load end
 // get movies from searchbar title start
-export const getMoviesFromSearchbarTitleStart = title => {
+export const getMoviesFromSearchbarTitleStart = data => {
   return {
     type: actionTypes.GET_MOVIES_FROM_SEARCHBAR_TITLE_STAT,
-    payload: title,
+    title: data.title,
   }
 }
 
@@ -43,9 +44,11 @@ export const getMoviesFromSearchbarTitleFail = () => {
 }
 // get movies from searchbar title end
 // get movies from searchbar title next page start
-export const getMoviesFromSearchbarTitleNextPageStart = () => {
+export const getMoviesFromSearchbarTitleNextPageStart = data => {
   return {
     type: actionTypes.GET_MOVIES_FROM_NEXT_PAGE_STAT,
+    title: data.title,
+    page: data.page,
   }
 }
 
@@ -65,9 +68,11 @@ export const getMoviesFromSearchbarTitleNextPageFail = () => {
 
 // get movies from searchbar title next page end
 // get movies from searchbar title prev page start
-export const getMoviesFromSearchbarTitlePrevPageStart = () => {
+export const getMoviesFromSearchbarTitlePrevPageStart = data => {
   return {
     type: actionTypes.GET_MOVIES_FROM_PREV_PAGE_STAT,
+    title: data.title,
+    page: data.page,
   }
 }
 

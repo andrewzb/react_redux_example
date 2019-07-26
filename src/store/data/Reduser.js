@@ -1,6 +1,7 @@
 import * as actionsTypes from './ActionTypes'
 
 const initialState = {
+  Title: 'star%2btrek',
   CurrentPage: 1,
   MoviesOnPage: [],
   ResCounter: null,
@@ -36,6 +37,8 @@ const getMoviesOnLoadFail = (state, action) => {
 const getMoviesFromSearchbarTitleStart = (state, action) => {
   return {
     ...state,
+    Title: action.title,
+    Err: false,
     Spinner: true,
   }
 }
@@ -45,6 +48,7 @@ const getMoviesFromSearchbarTitleSuccess = (state, action) => {
     ...state,
     MoviesOnPage: action.data.MoviesOnPage,
     ResCounter: action.data.ResCounter,
+    CurrentPage: 1,
     Spinner: false,
   }
 }
@@ -67,12 +71,12 @@ const getMoviesFromSearchbarTitlNextPageStart = (state, action) => {
 }
 
 const getMoviesFromSearchbarTitlNextPageSuccess = (state, action) => {
-  console.log(state)
   return {
     ...state,
     MoviesOnPage: action.data.MoviesOnPage,
     ResCounter: action.data.ResCounter,
     CurrentPage: state.CurrentPage + 1,
+    Err: false,
     Spinner: false,
   }
 }
@@ -96,7 +100,6 @@ const getMoviesFromSearchbarTitlPrevPageStart = (state, action) => {
 }
 
 const getMoviesFromSearchbarTitlPrevPageSuccess = (state, action) => {
-  console.log(state)
   let page = state.CurrentPage - 1
   if (page <= 0) { page = 1 }
   return {
@@ -104,6 +107,7 @@ const getMoviesFromSearchbarTitlPrevPageSuccess = (state, action) => {
     MoviesOnPage: action.data.MoviesOnPage,
     ResCounter: action.data.ResCounter,
     CurrentPage: page,
+    Err: false,
     Spinner: false,
   }
 }

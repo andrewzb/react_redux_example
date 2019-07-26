@@ -3,15 +3,16 @@ import { put, takeEvery } from 'redux-saga/effects'
 import * as actionCreater from './ActionCreaters'
 import * as actionTypes from './ActionTypes'
 
-const getMoviesStart = function * () {
+const getMoviesStart = function * (action) {
   try {
-    const req = yield axios('http://www.omdbapi.com/?apikey=41601d2a&s=star%2btrek')
-    const { totalResults, Search, Response } = req.data
+    const title = yield action.title
+    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}`)
+    const { totalResults, Search } = req.data
     const data = {
       MoviesOnPage: Search,
       ResCounter: totalResults,
     }
-    if (Response) {
+    if (data.MoviesOnPage) {
       yield put(actionCreater.getMoviesOnLoadSuccess(data))
     } else {
       const data = { Err: true }
@@ -23,13 +24,11 @@ const getMoviesStart = function * () {
   }
 }
 
-const getMoviesByTitle = function * () {
+const getMoviesByTitle = function * (action) {
   try {
-    const title = yield localStorage.getItem('title')
-    const curentPage = yield localStorage.getItem('page') || 1
-
+    const title = yield action.title
     const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}`)
-    const { totalResults, Search, Response } = req.data
+    const { totalResults, Search } = req.data
     const data = {
       MoviesOnPage: Search,
       ResCounter: totalResults,
@@ -46,12 +45,10 @@ const getMoviesByTitle = function * () {
   }
 }
 
-const getMoviesByTitleNextPage = function * () {
+const getMoviesByTitleNextPage = function * (action) {
   try {
-    console.log('next page')
-    const title = yield localStorage.getItem('title') || 'star%2btrek'
-    const curentPage = yield localStorage.getItem('page') || 1
-    const reqPage = curentPage + 1
+    const { title, page } = yield action
+    const reqPage = yield page + 1
     const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}&page=${reqPage}`)
     const { totalResults, Search } = req.data
     const data = {
@@ -70,12 +67,11 @@ const getMoviesByTitleNextPage = function * () {
   }
 }
 
-const getMoviesByTitlePrevPage = function * () {
+const getMoviesByTitlePrevPage = function * (action) {
   try {
-    console.log('next page11111')
-    const title = yield localStorage.getItem('title') || 'star%2btrek'
-    const curentPage = yield localStorage.getItem('page') || 1
-    const reqPage = curentPage - 1
+    const { title, page } = yield action
+    let reqPage = yield page - 1
+    if (reqPage <= 0) { reqPage = 1 }
     const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}&page=${reqPage}`)
     const { totalResults, Search } = req.data
     const data = {

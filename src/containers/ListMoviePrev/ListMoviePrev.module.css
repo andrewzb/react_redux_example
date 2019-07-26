@@ -1,29 +1,13 @@
-/* .Container{
-    background-color: var(  --color-grey-light-2);
-    width: 60%;
-    height: auto;
-    margin: 0 auto;
-    padding: 1rem;
-}
-.Container div {
-    margin: 1rem auto;
-
-} */
-
-.Container{
-    
-    /* background-color: var(  --color-grey-light-2); */
+.Container{ 
     width: 60%;
     margin: 0 auto;
-    padding: 2rem;
-   
+    padding: 2rem; 
 }
     
 .MovieContainer{
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
-
 }
 .buttonsContainer{
     margin: 2rem 0;
@@ -40,4 +24,49 @@
 .buttonContainer {
     display: flex;
     justify-content: center
+}
+
+@media screen and (max-width: 1200px) {
+    .Container{
+        width: 70%; 
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .Container{
+        width: 80%; 
+    }
+    .MovieContainer{
+        display: grid;
+        grid-gap: 1.5rem;
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Container{
+    
+        width: 100%; 
+    }
+    .MovieContainer{
+        display: grid;
+        grid-gap: 1.5rem;
+        grid-template-columns: 1fr 1fr ;
+    }
+    .buttonsContainer{
+        /* border-radius: 0; */
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 400px) {
+    .Container{
+    
+        width: 100%; 
+    }
+    .MovieContainer{
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr;
+    
+    }
 }
