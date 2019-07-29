@@ -1,0 +1,12 @@
+.Main {
+  width: 100%;
+  min-height: calc(100vh - 5rem - 3rem);
+}
+.Container{
+  width: 60%;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+
+  background-color: var(--color-grey-light-1);
+  min-height: calc(100vh - 5rem - 3rem);
+}

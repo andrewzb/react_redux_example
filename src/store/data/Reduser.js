@@ -5,6 +5,8 @@ const initialState = {
   CurrentPage: 1,
   MoviesOnPage: [],
   ResCounter: null,
+  MovieData: {},
+  LikeList: [],
   Spinner: true,
   Err: false,
 }
@@ -121,6 +123,81 @@ const getMoviesFromSearchbarTitlPrevPageFail = (state, action) => {
 }
 
 // get movies from searchbar title prev page end
+// get movies from  id start
+
+const getMoviesByIdStart = (state, action) => {
+  return {
+    ...state,
+    MovieData: null,
+    Err: false,
+    Spinner: true,
+  }
+}
+
+const getMoviesByIdSuccess = (state, action) => {
+  return {
+    ...state,
+    MovieData: action.data,
+    Err: false,
+    Spinner: false,
+  }
+}
+
+const getMoviesByIdFail = (state, action) => {
+  return {
+    ...state,
+    Err: true,
+    Spinner: false,
+  }
+}
+// get movies from  id end
+// TOOGLE MOVIE IN LOCALSTORAGE START
+
+const toggleMovieInLocalstorgeStart = (state, action) => {
+  return {
+    ...state,
+  }
+}
+
+const toggleMovieInLocalstorgeSuccess = (state, action) => {
+  let inArray
+  state.LikeList.forEach(el => {
+    if (el.Id === action.data.Id) inArray = true
+  })
+  let newArray
+  if (inArray) {
+    newArray = state.LikeList.filter(el => el.Id !== action.data.Id)
+  } else {
+    newArray = [...state.LikeList, action.data]
+  }
+  return {
+    ...state,
+    LikeList: newArray,
+  }
+}
+
+const toggleMovieInLocalstorgeFail = (state, action) => {
+  return {
+    ...state,
+  }
+}
+
+// TOOGLE MOVIE IN LOCALSTORAGE END
+// REMOVE ITEM FROM LIKELIST START
+
+const removeItemFromlikeListStart = (state, action) => {
+  console.log('asdasdasd', action)
+  const { Id } = action
+  const newArray = state.LikeList.filter(el => el.Id !== Id)
+
+  console.log(newArray)
+  return {
+    ...state,
+    LikeList: newArray,
+  }
+}
+
+// REMOVE ITEM FROM LIKELIST END
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -144,7 +221,21 @@ const reducer = (state = initialState, action) => {
     case actionsTypes.GET_MOVIES_FROM_PREV_PAGE_SUCCESS: return getMoviesFromSearchbarTitlPrevPageSuccess(state, action)
     case actionsTypes.GET_MOVIES_FROM_PREV_PAGE_FAIL: return getMoviesFromSearchbarTitlPrevPageFail(state, action)
       // get movies from searchbar title next end
-
+      // get movies from  id start
+    case actionsTypes.GET_MOVIES_BY_ID_START: return getMoviesByIdStart(state, action)
+    case actionsTypes.GET_MOVIES_BY_ID_SUCCESS: return getMoviesByIdSuccess(state, action)
+    case actionsTypes.GET_MOVIES_BY_ID_FAIL: return getMoviesByIdFail(state, action)
+      // get movies from id end
+      // get movies from  id start
+    case actionsTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_START: return toggleMovieInLocalstorgeStart(state, action)
+    case actionsTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_SUCCESS: return toggleMovieInLocalstorgeSuccess(state, action)
+    case actionsTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_FAIL: return toggleMovieInLocalstorgeFail(state, action)
+      // get movies from id end
+      // get movies from  id start
+    case actionsTypes.REMOVE_ITEM_FROM_LIKELIST_START: return removeItemFromlikeListStart(state, action)
+    // case actionsTypes.REMOVE_ITEM_FROM_LIKELIST_SUCCESS: return removeItemFromlikeListSuccses(state, action)
+    // case actionsTypes.REMOVE_ITEM_FROM_LIKELIST_FAIL: return removeItemFromlikeListFail(state, action)
+      // get movies from id end
     default:
       return state
   }

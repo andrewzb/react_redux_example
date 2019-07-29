@@ -1,6 +1,10 @@
 .Main {
   width: 100%;
-
+  min-height: calc(100vh - 5rem - 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 .Container{
   width: 60%;
@@ -14,9 +18,7 @@
   display: flex;
   justify-content: center;
 }
-.Data{
-  text-align: left;
-}
+
 .Primary_title{
   font-size: 1.4rem;
   font-weight: 600;
@@ -27,37 +29,74 @@
   padding: 1.5rem 0;
   display: flex;
 }
+
 .PosterAndDataContainer div{
-  margin: 1rem;
+  margin: 0.8rem;
 }
 .DataContainer div {
   font-size: 0.8rem;
+  margin: 1rem;
   color: var(--color-grey-dark-1);
 }
 .LinkContainer{
   display:flex;
   justify-content: center;
 }
-.Link{
-  text-decoration: none;
-  background-color: var(--color);
-  color: var(--color-grey-light-3);
-  padding: 0.5rem 1rem;
-  border-radius: 3px;
-  box-shadow: var(--shadow-dark);
-}
 
-.LikeBtnContainer{
+.LikeAndGoBackBtnContainer{
   display: flex;
   justify-content: center;
+  justify-content: space-around;
 }
-.Btn{
-  outline: none;
-  border: none;
-  cursor: pointer;
-  border-radius: 3px;
-  background-color: var(--color-primary);
-  padding: 0.5rem 1rem;
-  text-transform: capitalize;
-  box-shadow: var(--shadow-dark);
+
+@media screen and (max-width: 1200px) {
+  .Container{
+    width: 80%; 
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .PosterAndDataContainer{
+    padding: 0;
+  }
+  .Main{
+    padding: 1rem;
+  }
+  .Container{
+    width: 100%; 
+  }
+  .DataContainer{
+    font-size: 0.7rem;
+  }
+  .DataContainer div{
+    margin: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .PosterAndDataContainer{
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+  .PosterContainer{
+    width: auto;
+    text-align: center;
+
+  }
+  .PosterAndDataContainer div{
+    margin: 0;
+  }
+  .DataContainer div{
+    margin: 0.5rem;
+  }
+
+}
+@media screen and (max-width: 400px) {
+  .Main{
+    padding: 0;
+  }
+  .Container{
+    border-radius: 0;
+  }
 }

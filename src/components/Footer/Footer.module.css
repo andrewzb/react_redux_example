@@ -1,6 +1,6 @@
 .Footer{
     width: 100%;
-    height: auto;
+    height: 3rem;
     background-color: var(--color-grey-dark-3);
     padding: 0.5rem;
 }

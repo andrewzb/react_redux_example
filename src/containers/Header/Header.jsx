@@ -18,19 +18,27 @@ class Header extends React.Component {
   handleChange (event) {
     this.setState({ title: event.target.value })
   }
+
   handelSearch () {
     this.props.getMoviesByTitle({ title: this.state.title })
-  } 
+  }
+
   render () {
     return (
       <header className={classes.Header}>
         <div className={classes.Container}>
           <Logo />
           <SeachBar title={this.state.title} onTupe={e => this.handleChange(e)} onSearch={() => this.handelSearch()} />
-          <UserBar bascketIsEmpty={true} />
+          <UserBar bascketIsEmpty={(this.props.LikeList.length >= 1) ? 'false' : 'true'} />
         </div>
       </header>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    LikeList: state.data.LikeList,
   }
 }
 
@@ -40,4 +48,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

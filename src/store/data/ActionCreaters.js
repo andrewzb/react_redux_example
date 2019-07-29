@@ -91,3 +91,74 @@ export const getMoviesFromSearchbarTitlePrevPageFail = () => {
 }
 
 // get movies from searchbar title prev page end
+// get movie on load on movie page start
+export const getMoviesByIdStart = data => {
+  return {
+    type: actionTypes.GET_MOVIES_BY_ID_START,
+    Id: data.Id,
+  }
+}
+
+export const getMoviesByIdSuccess = data => {
+  return {
+    type: actionTypes.GET_MOVIES_BY_ID_SUCCESS,
+    data: data.MovieData,
+  }
+}
+
+export const getMoviesByIdFail = () => {
+  return {
+    type: actionTypes.GET_MOVIES_BY_ID_FAIL,
+    error: true,
+  }
+}
+
+// get movie on load on movie page end
+// TOOGLE MOVIE IN LOCALSTORAGE START
+
+export const toggleMovieInLocalstorgeStart = data => {
+  return {
+    type: actionTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_START,
+    Id: data.Id,
+    Poster: data.Poster,
+    Title: data.Title,
+  }
+}
+
+export const toggleMovieInLocalstorgeSuccess = data => {
+  return {
+    type: actionTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_SUCCESS,
+    data: data,
+  }
+}
+
+export const toggleMovieInLocalstorgeFail = () => {
+  return {
+    type: actionTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_FAIL,
+  }
+}
+
+// TOOGLE MOVIE IN LOCALSTORAGE END
+// REMOVE ITEMS FROM LIKELIST START
+
+export const removeItemFromLikeListStart = data => {
+  return {
+    type: actionTypes.REMOVE_ITEM_FROM_LIKELIST_START,
+    Id: data.Id,
+  }
+}
+
+export const removeItemFromLikeListSuccess = data => {
+  return {
+    type: actionTypes.REMOVE_ITEM_FROM_LIKELIST_START,
+    Id: data.id,
+  }
+}
+export const removeItemFromLikeListFail = data => {
+  return {
+    type: actionTypes.REMOVE_ITEM_FROM_LIKELIST_START,
+    Id: data.id,
+  }
+}
+
+// REMOVE ITEMS FROM LIKELIST END

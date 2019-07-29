@@ -25,11 +25,6 @@ class ListMoviePrev extends React.Component {
     this.props.getMoviesPrevStart(data)
   }
 
-  getIdOnItemClick (e) {
-    console.log(e.target)
-    console.log(e.target.getAttribute("imdbId"))
-  }
-
   componentDidMount () {
     this.props.getMoviesStart({ title: this.props.Title })
   }
@@ -42,20 +37,36 @@ class ListMoviePrev extends React.Component {
         imdbID={el.imdbID}
         Type={el.Type}
         Poster={el.Poster}
-        click={this.getIdOnItemClick}
         key={el.imdbID} />
     )))
   }
   getMoviesJSX () {
+    const maxPages = Math.floor(this.props.ResCounter / 9) + 1
+    const page = this.props.CurrentPage
     return (
       <React.Fragment>
         <div className={classes.MovieContainer}>
           {this.getMoviesOnPage()}
         </div>
         <div className={classes.buttonsContainer}>
-          <div className={classes.buttonContainer}><Btn click={e => this.PrevHandler(e)} title={'prev'} isActive={false} /></div>
-          <div className={classes.buttonContainer}><Btn title={this.props.CurrentPage} /></div>
-          <div className={classes.buttonContainer}><Btn click={e => this.NextHandler(e)} title={'next'} /></div>
+          <div className={classes.buttonContainer}>
+            <Btn
+              click={e => this.PrevHandler(e)}
+              type={'button'}
+              title={'prev'}
+              isActive={(page <= 1) ? 'disable' : 'active'} />
+          </div>
+          <div className={classes.buttonContainer}>
+            <Btn
+              isActive={'disable'}
+              title={this.props.CurrentPage} />
+          </div>
+          <div className={classes.buttonContainer}>
+            <Btn
+              isActive={(page <= maxPages) ? 'active' : 'disable'}
+              click={e => this.NextHandler(e)}
+              title={'next'} />
+          </div>
         </div>
       </React.Fragment>
 

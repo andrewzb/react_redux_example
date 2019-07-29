@@ -89,11 +89,51 @@ const getMoviesByTitlePrevPage = function * (action) {
     yield put(actionCreater.getMoviesFromSearchbarTitlePrevPageFail(data))
   }
 }
+
+const getMoviesById = function * (action) {
+  try {
+    const { Id } = yield action
+    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&i=${Id}`)
+    const data = {
+      MovieData: req.data,
+    }
+    if (data.MovieData) {
+      yield put(actionCreater.getMoviesByIdSuccess(data))
+    } else {
+      const data = { Err: true }
+      yield put(actionCreater.getMoviesByIdFail(data))
+    }
+  } catch (err) {
+    const data = { Err: true }
+    yield put(actionCreater.getMoviesByIdFail(data))
+  }
+}
+
+const toogleLikeList = function * (action) {
+  try {
+    const { Id, Title, Poster } = yield action
+    if (Id && Title && Poster) {
+      const data = {
+        Id: Id,
+        Title: Title,
+        Poster: Poster,
+      }
+      yield put(actionCreater.toggleMovieInLocalstorgeSuccess(data))
+    } else {
+      yield put(actionCreater.getMoviesByIdFail())
+    }
+  } catch (err) {
+    yield put(actionCreater.getMoviesByIdFail())
+  }
+}
+
 const DataWatcher = function * () {
   yield takeEvery(actionTypes.ON_START_GET_MOVIES_START, getMoviesStart)
   yield takeEvery(actionTypes.GET_MOVIES_FROM_SEARCHBAR_TITLE_STAT, getMoviesByTitle)
   yield takeEvery(actionTypes.GET_MOVIES_FROM_NEXT_PAGE_STAT, getMoviesByTitleNextPage)
   yield takeEvery(actionTypes.GET_MOVIES_FROM_PREV_PAGE_STAT, getMoviesByTitlePrevPage)
+  yield takeEvery(actionTypes.GET_MOVIES_BY_ID_START, getMoviesById)
+  yield takeEvery(actionTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_START, toogleLikeList)
 }
 
 export default DataWatcher

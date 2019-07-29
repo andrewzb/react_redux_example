@@ -1,4 +1,4 @@
-.Btn{
+.button{
 text-decoration: none;
 font-size: 1rem;
 padding: 0.5rem 1rem;
@@ -8,35 +8,67 @@ color: var(--color-grey-dark-2);
 cursor: pointer;
 background: var(--color-grey-light-5);
 }
-.Btn:disabled{
+
+.button{
 color: var(--color-grey-dark-3);
 color: var(--color-grey-dark-5);
-
-
 }
 
-.Btn:hover{
+.disable {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: var(--color-grey-light-5);
+  background: var(--color-grey-light-3);
 
 }
+.link{
+  font-size: 1rem;
+  text-decoration: none;
+  background-color: var(--color);
+  color: var(--color-grey-light-3);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  box-shadow: var(--shadow-dark);
+}
+
+.like{
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-grey-light-3);
+  border-radius: 3px;
+  background-color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  box-shadow: var(--shadow-dark);
+}
+
 
 @media screen and (max-width: 900px) {
- .Btn{
+ .button,
+ link{
    font-size: 0.9rem;
  }
 
 }
 
 @media screen and (max-width: 600px) {
-  .Btn{
+  .button,
+  link{
     font-size: 0.8rem;
     padding: 0.3rem 0.8rem;
   }
 
 }
 @media screen and (max-width: 400px) {
-  .Btn{
+  .button,
+  link{
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
 
   }
 }
+

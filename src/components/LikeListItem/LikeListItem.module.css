@@ -1,0 +1,31 @@
+.ItemContainer{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: var(--color-grey-light-1); */
+  background-color:#a80c0ca8;
+  box-shadow: var(--shadow-dark);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+.PosterPrev{
+  cursor: pointer;
+}
+.ItemContainer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.PrimaryTitle{
+  font-size: 1.2rem;
+  color: var(--color-grey-light-3);
+}
+.Trash{
+  cursor: pointer;
+}
+.PosterPrev img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-grey-dark-5)
+}
