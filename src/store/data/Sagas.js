@@ -2,11 +2,12 @@ import axios from 'axios'
 import { put, takeEvery } from 'redux-saga/effects'
 import * as actionCreater from './ActionCreaters'
 import * as actionTypes from './ActionTypes'
+import * as apiConfig from '../../config'
 
 const getMoviesStart = function * (action) {
   try {
     const title = yield action.title
-    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}`)
+    const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${title}`)
     const { totalResults, Search } = req.data
     const data = {
       MoviesOnPage: Search,
@@ -27,7 +28,7 @@ const getMoviesStart = function * (action) {
 const getMoviesByTitle = function * (action) {
   try {
     const title = yield action.title
-    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}`)
+    const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${title}`)
     const { totalResults, Search } = req.data
     const data = {
       MoviesOnPage: Search,
@@ -49,7 +50,7 @@ const getMoviesByTitleNextPage = function * (action) {
   try {
     const { title, page } = yield action
     const reqPage = yield page + 1
-    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}&page=${reqPage}`)
+    const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${title}&page=${reqPage}`)
     const { totalResults, Search } = req.data
     const data = {
       MoviesOnPage: Search,
@@ -72,7 +73,7 @@ const getMoviesByTitlePrevPage = function * (action) {
     const { title, page } = yield action
     let reqPage = yield page - 1
     if (reqPage <= 0) { reqPage = 1 }
-    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&s=${title}&page=${reqPage}`)
+    const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${title}&page=${reqPage}`)
     const { totalResults, Search } = req.data
     const data = {
       MoviesOnPage: Search,
@@ -93,7 +94,7 @@ const getMoviesByTitlePrevPage = function * (action) {
 const getMoviesById = function * (action) {
   try {
     const { Id } = yield action
-    const req = yield axios(`http://www.omdbapi.com/?apikey=41601d2a&i=${Id}`)
+    const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&i=${Id}`)
     const data = {
       MovieData: req.data,
     }
@@ -127,6 +128,26 @@ const toogleLikeList = function * (action) {
   }
 }
 
+const getMoviesForCurrentPage = function * (action) {
+  try {
+    let { CurrentPage } = yield action.data
+    const { Title } = yield action.data
+    if (CurrentPage <= 0) CurrentPage = 1
+    const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${Title}&page=${CurrentPage}`)
+    const data = {
+      MoviesOnPage: req.data.Search,
+      ResCounter: req.data.totalResults,
+    }
+    if (data.MoviesOnPage) {
+      yield put(actionCreater.getMovieForCurrentPageSuccess(data))
+    } else {
+      yield put(actionCreater.getMovieForCurrentPageFail())
+    }
+  } catch (err) {
+    yield put(actionCreater.getMovieForCurrentPageFail())
+  }
+}
+
 const DataWatcher = function * () {
   yield takeEvery(actionTypes.ON_START_GET_MOVIES_START, getMoviesStart)
   yield takeEvery(actionTypes.GET_MOVIES_FROM_SEARCHBAR_TITLE_STAT, getMoviesByTitle)
@@ -134,6 +155,7 @@ const DataWatcher = function * () {
   yield takeEvery(actionTypes.GET_MOVIES_FROM_PREV_PAGE_STAT, getMoviesByTitlePrevPage)
   yield takeEvery(actionTypes.GET_MOVIES_BY_ID_START, getMoviesById)
   yield takeEvery(actionTypes.TOOGLE_MOVIE_IN_LOCALSTORAGE_START, toogleLikeList)
+  yield takeEvery(actionTypes.GET_MOVIE_FOR_CURRENT_PAGE_START, getMoviesForCurrentPage)
 }
 
 export default DataWatcher

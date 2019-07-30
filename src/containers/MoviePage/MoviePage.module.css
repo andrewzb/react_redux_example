@@ -18,7 +18,6 @@
   display: flex;
   justify-content: center;
 }
-
 .Primary_title{
   font-size: 1.4rem;
   font-weight: 600;
@@ -29,7 +28,6 @@
   padding: 1.5rem 0;
   display: flex;
 }
-
 .PosterAndDataContainer div{
   margin: 0.8rem;
 }
@@ -42,19 +40,16 @@
   display:flex;
   justify-content: center;
 }
-
 .LikeAndGoBackBtnContainer{
   display: flex;
   justify-content: center;
   justify-content: space-around;
 }
-
 @media screen and (max-width: 1200px) {
   .Container{
     width: 80%; 
   }
 }
-
 @media screen and (max-width: 900px) {
   .PosterAndDataContainer{
     padding: 0;
@@ -72,7 +67,6 @@
     margin: 0.7rem;
   }
 }
-
 @media screen and (max-width: 600px) {
   .PosterAndDataContainer{
     flex-direction: column;
@@ -90,7 +84,6 @@
   .DataContainer div{
     margin: 0.5rem;
   }
-
 }
 @media screen and (max-width: 400px) {
   .Main{

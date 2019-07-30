@@ -5,11 +5,14 @@ import { withRouter } from 'react-router-dom'
 
 const UserBar = props => {
   const { bascketIsEmpty } = props
+
+  // --=TYPES=--
   // **signup
   // **login
   // **logout
   // **heartfill
   // **heart
+
   const getBasket = boll => (boll === 'true' ? <IconUserBar type="heart" /> : <IconUserBar type="heartfill" />)
   return (
     <div className={classes.Container} onClick={() => props.history.push('/likelist')} >

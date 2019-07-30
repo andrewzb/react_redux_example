@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   /* background-color: var(--color-grey-light-1); */
-  background-color:#a80c0ca8;
+  background-color:var(--color-grey-light-4-transperant);
   box-shadow: var(--shadow-dark);
-  border-radius: 5px;
+  border-radius: 3px;
+  border: 1px solid var(--color-grey-light-4-transperant); 
   padding: 0.5rem 1rem;
+  margin: 1rem 0.5rem;
 }
 .PosterPrev{
   cursor: pointer;
@@ -18,14 +20,55 @@
 }
 .PrimaryTitle{
   font-size: 1.2rem;
-  color: var(--color-grey-light-3);
+  color: var(--color-grey-dark-2);
 }
 .Trash{
   cursor: pointer;
 }
+.Trash > div {
+  height: 3rem;
+  width: 3rem;
+  margin: 0;
+  padding: 0.5rem;;
+}
+.Trash > div  svg {
+  height: 3rem;
+  width: 3rem;
+}
+.PosterPrev{
+overflow: hidden;
+border-radius: 50%;
+border: 1px solid var(--color-grey-light-4-transperant);
+}
 .PosterPrev img {
-  height: 5rem;
-  width: 5rem;
+  height: 3rem;
+  width: 3rem;
   border-radius: 50%;
-  border: 2px solid var(--color-grey-dark-5)
+  border: 2px solid var(--color-grey-dark-5);
+  transition: all 0.2s;
+}
+.PosterPrev img:hover{
+  transform: scale(1.4);
+  filter: blur(2px);
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+    .PrimaryTitle{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .PrimaryTitle{
+      font-size: 0.7rem;
+  }
+  .ItemContainer{
+    margin: 0.5rem 0;
+    padding: 0.3rem 0.2rem
+  }
+}
+@media screen and (max-width: 400px) {
 }

@@ -1,5 +1,4 @@
 .Container{
-    /* width: 100%; */
     padding: 1rem;
     background-color: var(--color-grey-light-4-transperant);
     color:  var(  --color-grey-dark-2);
@@ -11,7 +10,6 @@
 .Container:hover{
     background-color: var(  --color-grey-light-5);
 }
-
 .Title{
     display: block;
     font-size: 0.8rem;
@@ -23,7 +21,6 @@
     height: auto;
     margin: 0 auto;
     padding: 0.5rem;
-
 }
 .Poster{
     width: 100%;
@@ -35,20 +32,14 @@
     text-align: center;
     font-size: 1rem;
 }
-
-
 @media screen and (max-width: 1200px) {
-
 }
-
 @media screen and (max-width: 900px) {
     .Title{
         font-size: 0.7rem;
     }
 }
-
 @media screen and (max-width: 600px) {
-
 }
 @media screen and (max-width: 400px) {
     .Title{

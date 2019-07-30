@@ -162,3 +162,26 @@ export const removeItemFromLikeListFail = data => {
 }
 
 // REMOVE ITEMS FROM LIKELIST END
+// GET MOVIES FOR CURRENT PAGE START
+
+export const getMovieForCurrentPageStart = data => {
+  return {
+    type: actionTypes.GET_MOVIE_FOR_CURRENT_PAGE_START,
+    data: data,
+  }
+}
+
+export const getMovieForCurrentPageSuccess = data => {
+  return {
+    type: actionTypes.GET_MOVIE_FOR_CURRENT_PAGE_SUCCESS,
+    data: data,
+  }
+}
+
+export const getMovieForCurrentPageFail = data => {
+  return {
+    type: actionTypes.GET_MOVIE_FOR_CURRENT_PAGE_FAIL,
+  }
+}
+
+// GET MOVIES FOR CURRENT PAGE END

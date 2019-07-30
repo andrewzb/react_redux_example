@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actionsCreater from '../../store/data/ActionCreaters'
 
 import classes from './Header.module.css'
-import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { ReactComponent as Logo } from '../../assets/loggo.svg'
 import SeachBar from '../../components/UI/SearchBar/SearchBar'
 import UserBar from '../../components/UserBar/UserBar'
 

@@ -1,13 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actionsCreater from '../../store/data/ActionCreaters'
-
 import classes from './ListMoviePrev.module.css'
-
 import MovieItem from '../../components/MovieItem/MovieItem'
 import Spinner from '../../components/Spinner/Spinner'
-
 import Btn from '../../components/UI/Button/Button'
+
 class ListMoviePrev extends React.Component {
   NextHandler (e) {
     const data = {
@@ -26,7 +24,7 @@ class ListMoviePrev extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getMoviesStart({ title: this.props.Title })
+    this.props.getMoviesStart({ Title: this.props.Title, CurrentPage: this.props.CurrentPage })
   }
 
   getMoviesOnPage () {
@@ -95,7 +93,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMoviesStart: data => dispatch(actionsCreater.getMoviesOnLoadStart(data)),
+    getMoviesStart: data => dispatch(actionsCreater.getMovieForCurrentPageStart(data)),
     getMoviesNextStart: data => dispatch(actionsCreater.getMoviesFromSearchbarTitleNextPageStart(data)),
     getMoviesPrevStart: data => dispatch(actionsCreater.getMoviesFromSearchbarTitlePrevPageStart(data)),
   }

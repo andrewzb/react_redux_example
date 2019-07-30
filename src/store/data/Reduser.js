@@ -1,7 +1,8 @@
 import * as actionsTypes from './ActionTypes'
+import * as config from '../../config'
 
 const initialState = {
-  Title: 'star%2btrek',
+  Title: config.DEF_TITLE,
   CurrentPage: 1,
   MoviesOnPage: [],
   ResCounter: null,
@@ -186,11 +187,8 @@ const toggleMovieInLocalstorgeFail = (state, action) => {
 // REMOVE ITEM FROM LIKELIST START
 
 const removeItemFromlikeListStart = (state, action) => {
-  console.log('asdasdasd', action)
   const { Id } = action
   const newArray = state.LikeList.filter(el => el.Id !== Id)
-
-  console.log(newArray)
   return {
     ...state,
     LikeList: newArray,
@@ -198,6 +196,35 @@ const removeItemFromlikeListStart = (state, action) => {
 }
 
 // REMOVE ITEM FROM LIKELIST END
+// get movies for current page start
+
+const getMoviesForCurrentPageStart = (state, action) => {
+  return {
+    ...state,
+    Spinner: true,
+    Err: false,
+  }
+}
+
+const getMoviesForCurrentPageSuccess = (state, action) => {
+  return {
+    ...state,
+    MoviesOnPage: action.data.MoviesOnPage,
+    ResCounter: action.data.ResCounter,
+    Spinner: false,
+    Err: false,
+  }
+}
+
+const getMoviesForCurrentPageFail = (state, action) => {
+  return {
+    ...state,
+    Spinner: false,
+    Err: true,
+  }
+}
+
+// get movies for current page END
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -236,6 +263,11 @@ const reducer = (state = initialState, action) => {
     // case actionsTypes.REMOVE_ITEM_FROM_LIKELIST_SUCCESS: return removeItemFromlikeListSuccses(state, action)
     // case actionsTypes.REMOVE_ITEM_FROM_LIKELIST_FAIL: return removeItemFromlikeListFail(state, action)
       // get movies from id end
+      // get movies for current page start
+    case actionsTypes.GET_MOVIE_FOR_CURRENT_PAGE_START: return getMoviesForCurrentPageStart(state, action)
+    case actionsTypes.GET_MOVIE_FOR_CURRENT_PAGE_SUCCESS: return getMoviesForCurrentPageSuccess(state, action)
+    case actionsTypes.GET_MOVIE_FOR_CURRENT_PAGE_FAIL: return getMoviesForCurrentPageFail(state, action)
+    // get movies for current page start
     default:
       return state
   }

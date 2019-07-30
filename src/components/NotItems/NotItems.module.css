@@ -1,0 +1,26 @@
+.Container{
+  width: 100%;
+  margin: 0 auto;
+}
+.Container div {
+  padding: 0.5rem 0;
+}
+.TitlePrimary{
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-grey-dark-2);
+}
+.TitleSecondary{
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-grey-dark-3);
+  text-align: center;
+}
+.LogoContainer{
+  width: 100%;
+}
+.LogoContainer svg{
+  width: 100%;
+  height: 5rem;
+}

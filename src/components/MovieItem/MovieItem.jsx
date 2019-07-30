@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import classes from './MovieItem.module.css'
+import * as config from '../../config'
 
 const MovieItem = ({ Title, Year, imdbID, Type, Poster, history }) => {
   return (
@@ -9,7 +10,7 @@ const MovieItem = ({ Title, Year, imdbID, Type, Poster, history }) => {
         {Title}
       </div>
       <div className={classes.PosterContainer} >
-        <img className={classes.Poster} src={Poster === 'N/A' ? 'http://sinema.yedincigemi.com/thumb/tt2194870.jpg' : Poster} alt="Poster" />
+        <img className={classes.Poster} src={Poster === 'N/A' ? config.DEF_POSTER : Poster} alt="Poster" />
       </div>
     </div>
   )

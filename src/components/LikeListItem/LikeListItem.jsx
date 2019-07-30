@@ -3,7 +3,6 @@ import classes from './LikeListItem.module.css'
 import Icon from '../UserBar/IconUserBar/IconUserBar'
 import { withRouter } from 'react-router-dom'
 
-
 const LikeListItem = props => {
   const { click, Title, Poster, Id, history } = props
   return (

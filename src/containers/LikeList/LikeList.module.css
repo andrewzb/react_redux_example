@@ -5,8 +5,43 @@
 .Container{
   width: 60%;
   margin: 2rem auto;
-  padding: 1rem 2rem;
-
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
   background-color: var(--color-grey-light-1);
-  min-height: calc(100vh - 5rem - 3rem);
+  min-height: calc(100vh - 5rem - 3rem - 7vh);
+}
+.BtnContainer{
+  width: 60%;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background-color: var(--color-grey-light-1);
+  border-radius: 5px;
+  min-height: calc(7vh);
+  display: flex;
+  justify-content: center;
+}
+.BtnContainer a {
+  text-align: center;
+}
+@media screen and (max-width: 1200px) {
+  .Container,
+  .BtnContainer{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .Container,
+  .BtnContainer{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .Container{
+    padding: 0.5rem 0;
+  }
+}
+@media screen and (max-width: 400px) {
+    .Title{
+        font-size: 0.8rem;
+    }
 }
